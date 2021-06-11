@@ -1,0 +1,8 @@
+---
+- name: Test install-python-from-source
+  hosts: client1
+  become: yes
+  vars:
+    python_version: 3.9.5
+  roles:
+    - './install-python-from-source'
