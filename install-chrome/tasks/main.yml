@@ -1,0 +1,14 @@
+---
+- name: Download Google Chrome Installer
+  get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dest: /tmp/google-chrome-stable_current_amd64.deb
+
+- name: Install Google Chrome from downloaded file
+  apt:
+    deb: /tmp/google-chrome-stable_current_amd64.deb
+
+- name: Remove Google Chrome Installer
+  file:
+    path: /tmp/google-chrome-stable_current_amd64.deb
+    state: absent

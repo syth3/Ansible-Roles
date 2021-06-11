@@ -1,13 +1,19 @@
 ---
-- name: Test configure-bash
-  hosts: client1
-  vars:
-    bash_user: ansible
-    bash_aliases:
-      - { alias: 'python', command: '/opt/Python-3.9.5/python' }
-      - { alias: 'python3', command: '/opt/Python-3.9.5/python' }
+- name: Install Google Chrome
+  hosts: client4
+  become: yes
   roles:
-    - './configure-bash'
+    - './install-chrome'
+
+# - name: Test configure-bash
+#   hosts: client1
+#   vars:
+#     bash_user: ansible
+#     bash_aliases:
+#       - { alias: 'python', command: '/opt/Python-3.9.5/python' }
+#       - { alias: 'python3', command: '/opt/Python-3.9.5/python' }
+#   roles:
+#     - './configure-bash'
 
 # - name: Test install-python-from-source
 #   hosts: client1
