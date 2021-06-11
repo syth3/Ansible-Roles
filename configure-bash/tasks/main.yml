@@ -1,0 +1,32 @@
+---
+- name: Copy bashrc to target
+  copy:
+    src: bashrc
+    dest: /home/{{ bash_user }}/.bashrc
+    mode: u=rw,g=r,o=r
+    owner: "{{ bash_user }}"
+    group: "{{ bash_user }}"
+
+- name: Add Bash aliases
+  lineinfile:
+    dest: /home/{{ bash_user }}/.bashrc
+    line: 'alias {{ item.alias }}="{{ item.command }}"'
+    regexp: "^alias {{ item.alias }}="
+  with_items: "{{ bash_aliases }}"
+  when: bash_aliases != false
+
+- name: Ensure ~/.local/bin directory exists
+  file:
+    path: /home/{{ bash_user }}/.local/bin
+    state: directory
+
+- name: Stat ~/.profile
+  stat:
+    path: /home/{{ bash_user }}/.profile
+  register: profile_file
+
+- name: Add ~/.local/bin to PATH
+  lineinfile:
+    path: /home/{{ bash_user }}/.profile
+    line: export PATH=$PATH:$HOME/.local/bin
+  when: profile_file.stat.exists

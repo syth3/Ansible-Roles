@@ -1,8 +1,18 @@
 ---
-- name: Test install-python-from-source
+- name: Test configure-bash
   hosts: client1
-  become: yes
   vars:
-    python_version: 3.9.5
+    bash_user: ansible
+    bash_aliases:
+      - { alias: 'python', command: '/opt/Python-3.9.5/python' }
+      - { alias: 'python3', command: '/opt/Python-3.9.5/python' }
   roles:
-    - './install-python-from-source'
+    - './configure-bash'
+
+# - name: Test install-python-from-source
+#   hosts: client1
+#   become: yes
+#   vars:
+#     python_version: 3.9.5
+#   roles:
+#     - './install-python-from-source'
