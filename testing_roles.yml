@@ -1,9 +1,14 @@
 ---
-- name: Install Jetbrains Toolbox
+- name: Install pip
   hosts: client4
-  become: yes
   roles:
-    - './install-jetbrains-toolbox'
+    - './install-pip'
+
+# - name: Install Jetbrains Toolbox
+#   hosts: client4
+#   become: yes
+#   roles:
+#     - './install-jetbrains-toolbox'
 
 # - name: Install Wireshark
 #   hosts: client4

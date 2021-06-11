@@ -1,0 +1,14 @@
+---
+- name: Install python3-distutils
+  become: yes
+  apt:
+    name: python3-distutils
+    state: latest
+
+- name: Download get-pip.py
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /tmp/get-pip.py
+
+- name: Run get-pip.py
+  shell: python3 /tmp/get-pip.py --user
