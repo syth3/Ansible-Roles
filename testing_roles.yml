@@ -1,12 +1,18 @@
 ---
-- name: Install Wireshark
+- name: Install Jetbrains Toolbox
   hosts: client4
   become: yes
-  vars:
-    wireshark_group_users:
-      - ansible
   roles:
-    - './install-wireshark'
+    - './install-jetbrains-toolbox'
+
+# - name: Install Wireshark
+#   hosts: client4
+#   become: yes
+#   vars:
+#     wireshark_group_users:
+#       - ansible
+#   roles:
+#     - './install-wireshark'
 
 # - name: Install Visual Studio Code
 #   hosts: client4
