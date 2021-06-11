@@ -1,17 +1,20 @@
 ---
 - name: Install wireshark
+  become: yes
   apt:
     update_cache: yes
     name: wireshark
     state: latest
 
 - name: Add wireshark group
+  become: yes
   group:
     name: "{{ wireshark_group_name }}"
     state: present
   register: group_creation_output
 
 - name: Add users to wireshark login group
+  become: yes
   user:
     name: "{{ item }}"
     groups: "{{ wireshark_group_name }}"
@@ -20,18 +23,21 @@
   when: group_creation_output.state == "present"
 
 - name: Change group and permissions of /usr/bin/dumpcap
+  become: yes
   file:
     path: /usr/bin/dumpcap
     group: "{{ wireshark_group_name }}"
     mode: '0750'
   
 - name: Set file capabilities of /usr/bin/dumpcap
+  become: yes
   capabilities:
     path: /usr/bin/dumpcap
     capability: cap_net_raw,cap_net_admin=eip
     state: present
 
 - name: Reboot system
+  become: yes
   reboot:
     test_command: whoami
     reboot_timeout: 600

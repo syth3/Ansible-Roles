@@ -16,6 +16,7 @@
     state: latest
 
 - name: Run Jetbrains Toolkit installer script
+  become: yes
   shell: 
     cmd: /tmp/install-jetbrains-toolbox.sh
     chdir: /tmp
