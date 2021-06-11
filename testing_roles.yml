@@ -1,9 +1,18 @@
 ---
-- name: Install Visual Studio Code
+- name: Install Wireshark
   hosts: client4
   become: yes
+  vars:
+    wireshark_group_users:
+      - ansible
   roles:
-    - './install-vscode'
+    - './install-wireshark'
+
+# - name: Install Visual Studio Code
+#   hosts: client4
+#   become: yes
+#   roles:
+#     - './install-vscode'
 
 # - name: Install Google Chrome
 #   hosts: client4
