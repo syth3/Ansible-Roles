@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Install Visual Studio Code on a Debian-based linux system..
+Install Visual Studio Code on a Debian-based linux system.
 
 Requirements
 ------------
