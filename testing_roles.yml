@@ -1,9 +1,15 @@
 ---
-- name: Install Google Chrome
+- name: Install Visual Studio Code
   hosts: client4
   become: yes
   roles:
-    - './install-chrome'
+    - './install-vscode'
+
+# - name: Install Google Chrome
+#   hosts: client4
+#   become: yes
+#   roles:
+#     - './install-chrome'
 
 # - name: Test configure-bash
 #   hosts: client1
