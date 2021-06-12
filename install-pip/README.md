@@ -11,7 +11,11 @@ None.
 Role Variables
 --------------
 
-None.
+Available variables are listed below, along with default values (see `defaults/main.yml`):
+```
+# Python executable to use when installing pip
+python_executable: /usr/bin/python3
+```
 
 Dependencies
 ------------
