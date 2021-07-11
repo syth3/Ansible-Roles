@@ -1,3 +1,4 @@
 ---
 bash_user: user
 bash_aliases:
+install_bashrc: no
