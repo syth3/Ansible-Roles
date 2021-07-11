@@ -6,6 +6,7 @@
     mode: u=rw,g=r,o=r
     owner: "{{ bash_user }}"
     group: "{{ bash_user }}"
+  when: install_bashrc == "yes"
 
 - name: Add Bash aliases
   lineinfile:
