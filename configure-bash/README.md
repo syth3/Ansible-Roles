@@ -16,6 +16,7 @@ Available variables are listed below, along with default values (see `defaults/m
 bash_user: user
 # There is no default value for bash_aliases. See the example playbook for how to use it
 bash_aliases:
+install_bashrc: no
 ```
 
 Dependencies
