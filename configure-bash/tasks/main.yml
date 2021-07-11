@@ -14,7 +14,9 @@
     line: 'alias {{ item.alias }}="{{ item.command }}"'
     regexp: "^alias {{ item.alias }}="
   with_items: "{{ bash_aliases }}"
-  when: bash_aliases != false
+  when: >
+    bash_aliases != false and
+    bash_aliases is not none
 
 - name: Ensure ~/.local/bin directory exists
   file:
