@@ -10,6 +10,7 @@
     mode: a+x
 
 - name: Ensure necessary packages are installed
+  become: yes
   apt:
     update_cache: yes
     name: curl
