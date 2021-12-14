@@ -26,3 +26,5 @@
     update_cache: yes
     name: code
     state: present
+
+# To change the title, change the window title bar style from native to custom
