@@ -36,8 +36,8 @@
     capability: cap_net_raw,cap_net_admin=eip
     state: present
 
-- name: Reboot system
-  become: yes
-  reboot:
-    test_command: whoami
-    reboot_timeout: 600
+#- name: Reboot system
+#  become: yes
+#  reboot:
+#    test_command: whoami
+#    reboot_timeout: 600
